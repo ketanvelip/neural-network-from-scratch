@@ -1,14 +1,13 @@
 import pandas as pd
 import numpy as np
 
-def load_data(path):
+def load_data(filepath):
     """
     Load dataset from a CSV file and return features and labels.
     """
-    df = pd.read_csv(path)
-    # Assuming the last column is the target label
-    X = df.iloc[:, :-1].values
-    y = df.iloc[:, -1].values
+    df = pd.read_csv(filepath)
+    X = df.iloc[:, :-1].values  # All columns except the last one are features
+    y = df.iloc[:, -1].values   # The last column is the label
     return X, y
 
 def normalize_features(X):
